@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FM Transmitter Control Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>FM Transmitter Control</h1>
+
+    <label for="frequency">Frequency (MHz):</label>
+    <input type="number" id="frequency" name="frequency" min="87.5" max="108.0" step="0.1" value="99.5">
+    
+    <label for="volume">Volume:</label>
+    <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+    
+    <label for="modulation">Modulation Type:</label>
+    <select id="modulation" name="modulation">
+        <option value="fm">FM</option>
+        <option value="am">AM</option>
+    </select>
+
+    <label for="power">Power Level (Watts):</label>
+    <input type="number" id="power" name="power" min="0.1" max="10" step="0.1" value="1">
+
+    <button onclick="setTransmitter()">Set Transmitter</button>
+</div>
+
+<script>
+    function setTransmitter() {
+        var frequency = document.getElementById('frequency').value;
+        var volume = document.getElementById('volume').value;
+        var modulation = document.getElementById('modulation').value;
+        var power = document.getElementById('power').value;
+
+        alert(`Setting FM Transmitter: \nFrequency: ${frequency} MHz\nVolume: ${volume}\nModulation: ${modulation}\nPower: ${power} W`);
+        
+        // Send data to FM transmitter device here (requires backend)
+    }
+</script>
+
+</body>
+</html>
